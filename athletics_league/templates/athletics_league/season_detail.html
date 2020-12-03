@@ -1,0 +1,12 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Title: {{ season.season_Name }}</h1>
+  <p><strong>Meetings for this season:</strong> <a href="">{{ club.Meeting }}</a></p> 
+  {% for meeting in season.meeting_set.all|dictsort:"meeting_date" %}
+      <hr>
+      <p><strong>Meeting :</strong> <a href="{{ meeting.get_absolute_url }}">{{ meeting.meeting_name }}</a>,  {{meeting.meeting_date}}</p> 
+  {% endfor %}
+  
+
+{% endblock %}

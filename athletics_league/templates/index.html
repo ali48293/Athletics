@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1><a href="/">Athletics League Home</a></h1>
+  <p class="alert alert-danger">Actions will be Performed only by the Super User. Sign in as <a href="{% url 'login'%}?next={{request.path}}"> Super User</a> </p>
+  <p>This website has the following counts:</p>
+
+  <ul>
+    <li><strong>Clubs:</strong> {{ num_clubs }}</li>
+    <li><strong>Athletes:</strong> {{ num_athletes }}</li>
+    <li><strong>Leagues:</strong> {{ num_leagues }}</li>
+    <li><strong>Venue:</strong> {{ num_venues }}</li>
+    <li><strong>Season:</strong> {{ num_seasons }}</li>
+    <li><strong>Event:</strong> {{ num_events }}</li>
+  </ul>
+{% endblock %}

@@ -1,0 +1,16 @@
+  
+<h1> Event Participants</h1>
+{{event_obj.Event}} <br>
+{% for i in event_obj  %} 
+<h4>Event Name : {{i.Event}}</h4>
+  <strong> Name:</strong> {{i.Athlete}} <br>   
+   <strong> Bib:</strong>{{i.bib}}   <br>
+  <strong> Lane:</strong>{{i.lane}}   <hr>
+      
+
+
+
+    {% endfor %}
+  </table>
+    
+        

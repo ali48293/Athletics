@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Season List</h1>
+  {% if season_list %}
+  <ul>
+    {% for season in season_list %}
+      <li>
+        <a href="{{ season.get_absolute_url }}">{{ season.season_Name}}</a>
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no Season.</p>
+  {% endif %}       
+{% endblock %}

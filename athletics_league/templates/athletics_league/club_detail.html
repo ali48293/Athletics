@@ -1,0 +1,13 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Title: {{ club.Club_Name }}</h1>
+
+  <p><strong>League:</strong> <a href="">{{ club.League }}</a></p> 
+  {% for athlete in club.athlete_set.all %}
+      <hr>
+      <p><strong>Athlete:</strong> <a href="">{{ althlete.Athlete_Name }}</a></p> 
+    {% endfor %}
+  
+
+{% endblock %}

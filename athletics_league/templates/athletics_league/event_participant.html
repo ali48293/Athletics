@@ -1,0 +1,39 @@
+{% extends "base_generic.html" %}
+{% load static %}
+{% block content %}
+<style>
+  table, th, td {
+    border: 4px solid black;
+    border-collapse: collapse;
+    padding: 10%;
+  }
+</style>
+<h1>{{ event.event_name }}</h1>
+{% if event.status == "T" %}
+<ul>
+  <p><strong>This is a track event</strong></p>
+</ul>
+{% else %}
+<p>This is a field event</p>
+{% endif %}
+
+<ul>
+  <p><strong>Event results for this event:</strong></p>
+
+<br><br>
+
+
+
+
+    <br>
+    <!-- <p><a href="{{ eventparticipant.Athlete.get_absolute_url }}">{{ eventparticipant.Athlete }}</a> {{eventparticipant.bib}} {{eventparticipant.lane}}</p> -->
+  
+
+
+    <hr>
+
+</ul>
+
+<p>There are no results yet</p>
+
+{% endblock %}

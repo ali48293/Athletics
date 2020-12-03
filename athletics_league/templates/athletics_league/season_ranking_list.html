@@ -1,0 +1,18 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Season Ranking List</h1>
+  {% if season_list %}
+  <ul>
+    {% for season in season_list %}
+      <li>
+        <p><a href="{{ season.get_absolute_url }}">{{ season.season_Name}} </a>  <a href="{% url 'recalc_rankings' pk=season.season_ID %}" />
+    <button id="recalc-btn" />Recalc Rankings</button>
+</a></p>
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no Season.</p>
+  {% endif %}       
+{% endblock %}

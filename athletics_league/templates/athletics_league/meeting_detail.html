@@ -1,0 +1,13 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>{{ meeting.meeting_name }}</h1>
+  <p><strong>Events for this Meet: </strong> <a href="">{{ Meeting.event }}</a></p> 
+  {% for event in meeting.event_set.all|dictsort:"event_time" %}
+      <hr>
+	  <p><strong>Event :</strong> <a href="{{ event.get_absolute_url }}">{{ event.event_name }}</a></p>
+  {% endfor %}
+  
+  
+
+{% endblock %}

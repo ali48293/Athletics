@@ -1,0 +1,27 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Rankings Search</h1>
+  <form method="get">
+    {{ filter.form }}
+    <button type="submit">Search</button>
+  </form>
+  <ul>
+    {%for athleteranking in rankings%}
+    <p><a href="{{ athleteranking.Athlete.get_absolute_url }}">{{ athleteranking.Athlete }}</a> </p>
+    {% endfor %}
+  </ul>
+  <!-- 
+  {% if event_list %}
+  <ul>
+    {% for event in event_list %}
+      <li>
+        <a href="{{ event.get_absolute_url }}">{{ event.Event_Name}}</a>
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no events.</p>
+  {% endif %}
+-->  
+{% endblock %}

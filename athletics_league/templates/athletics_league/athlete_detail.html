@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Title: {{ athlete.Athlete_Name }}</h1>
+
+  <p><strong>Club:</strong> <a href="">{{ athlete.Club }}</a></p> <!-- author detail link not yet defined -->
+  
+  <p><strong>Rankings  for this Athlete:</strong></p>
+  {% for athleteranking in athlete.athleteranking_set.all%}
+      <hr>
+      <p><strong>Ranking :</strong> {{ athleteranking.Season.season_Name }} -- {{ athleteranking.Speciality.speciality_name }} ---> {{athleteranking.ranking}}</a></p> 
+  {% endfor %}
+  
+  
+  
+{% endblock %}

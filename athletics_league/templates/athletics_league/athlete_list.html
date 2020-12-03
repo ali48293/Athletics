@@ -1,0 +1,51 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Athlete List</h1>
+
+  <ul>
+    {% for athlete in athlete_list %}
+      <li>
+        <a href="{{ athlete.get_absolute_url }}">{{ athlete.Athlete_Name}}</a>
+      </li>
+    {% endfor %}
+  </ul>
+  
+
+    
+  <ul>  
+    {% for i  in athlete  %}
+    
+    <li> <b>Speciality:</b>  {{i.Speciality}} <br>
+    <b>Athlete:</b>  {{i.Athlete}} <br>
+    <b>Season:</b>  {{i.Season}} <br>
+    <b>PB:</b>  {{i.PB}} -
+    {% if user.is_superuser %}
+    
+    
+    <a href="{% url 'updatePB' i.pk %}">Edit</a>
+    {% endif %}
+  </li><br>
+  
+    {% endfor %}
+    <h1 class="alert alert-primary">The Top Two</h1>
+
+    {% for i in filtered %}
+
+  
+
+<ul>
+  <li>
+  <b>Athlete : </b> {{i.Athlete}} -
+    Duration: <b>{{i.pb_time}}</b>  <br>
+  </li>
+
+</ul>  
+
+{% endfor %}
+    
+
+</ul>
+
+
+{% endblock %}

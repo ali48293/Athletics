@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Club List</h1>
+  {% if club_list %}
+  <ul>
+    {% for club in club_list %}
+      <li>
+        <a href="{{ club.get_absolute_url }}">{{ club.Club_Name}}</a>
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no clubs.</p>
+  {% endif %}       
+{% endblock %}

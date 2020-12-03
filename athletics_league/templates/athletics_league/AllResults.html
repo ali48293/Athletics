@@ -1,0 +1,26 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+
+<h1>Added Results</h1>
+<br>
+{% for i in eventresult  %}
+
+<ul>
+    <li> <h2> Event Participant:</h2> {{i.EventParticipant}} <br>
+    <li> <h2> Athlete:</h2> {{i.EventParticipant.Athlete}} <br>
+        <h2>Duration: </h2> {{i.duration}}        
+        -- 
+        {% if user.is_superuser %}
+<button class="btn btn-primary-sm">  <a class="btn btn-primary-sm" href="{% url 'UpdateResult' i.pk %}">Edit</a></button> 
+                
+        {% endif %}
+
+    <hr>
+    </li>
+    
+</ul> 
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends "base_generic.html" %}
+{% load static %}
+{% block content %}
+<style>
+  table, th, td {
+    border: 2px solid black;
+    border-collapse: collapse;
+    padding: 10%;
+  }
+</style>
+<h1>{{ event.event_name }}</h1>
+{% if event.status == "T" %}
+<ul>
+  <p><strong>This is a track event</strong></p>
+</ul>
+{% else %}
+<p>This is a field event</p>
+{% endif %}
+
+<ul>
+  <p><strong>Event results for this event:</strong></p>
+<h1>The Successors of All the HEAT:</h1>
+
+<br>
+{% for i in Participant|slice:'1'  %}
+<b>
+{% for j in i.trackeventresult_set.all|dictsort:'duration'|slice:'2' %}
+  
+{{j.EventParticipant}} <br>
+{{j.duration}}
+<hr>
+{% endfor %}
+<!-- Event: {{i.Event}}
+Speciality: {{i.Event.Speciality}} <br>
+Round: {{i.Event.round_type}} <br>
+Duration: {{j.duration}} -->
+
+</b>
+
+
+{% endfor %}
+  <br><br>
+
+{{finalist.bib}}
+<br>
+{% if user.is_superuser %}
+<h2 class="alert alert-warning">More Options:</h2>
+
+  <button class="btn btn-primary"> <a  class="btn btn-primary" href="{% url 'AddResult' %}">Add Resutl</a></button>   
+  <button class="btn btn-primary" > <a class="btn btn-primary" href="{% url 'addEvent' %}">Add Participant</a></button> 
+  <button class="btn btn-primary"> <a class="btn btn-primary"  href="{% url 'addPB' %}">  Add Athlete</a> </button>
+ 
+  {% endif %}
+    
+
+<br><br>
+
+
+    <br>
+    <!-- <p><a href="{{ eventparticipant.Athlete.get_absolute_url }}">{{ eventparticipant.Athlete }}</a> {{eventparticipant.bib}} {{eventparticipant.lane}}</p> -->
+  
+
+
+    <hr>
+
+</ul>
+
+<p>There are no results yet</p>
+
+{% endblock %}
